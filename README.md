@@ -16,6 +16,11 @@ A media controller that uses Windows 11 native DWM styling for a seamless look.
 
 ## Images:
 
-![closeup_border](assets/closeup_border.png)
+Without Border:<br>
 ![closeup_no_border](assets/closeup_no_border.png)
+
+With Border:<br>
+![closeup_border](assets/closeup_border.png)
+
+Full Desktop:<br>
 ![full desktop](assets/full_desktop.png)

@@ -144,7 +144,7 @@ struct ModSettings {
     int fontSize = 11;
     int offsetX = 12;
     int offsetY = 0;
-    bool showBorder = true;
+    bool showBorder = false;
 } g_Settings;
 
 // --- Global State ---
