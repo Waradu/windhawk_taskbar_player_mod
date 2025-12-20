@@ -13,7 +13,7 @@ Now playing in taskbar with media controls.
 ## ⚠️ Requirements
 * **Disable Widgets:** Taskbar Settings -> Widgets -> Off.
 
-## Images:
+## 🖼️ Images:
 
 Without Border:<br>
 ![closeup_no_border](assets/closeup_no_border.png)
