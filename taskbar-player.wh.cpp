@@ -40,8 +40,10 @@ Now playing in taskbar with media controls.
   $name: X Offset
 - OffsetY: 0
   $name: Y Offset
-- ShowBorder: true
+- ShowBorder: false
   $name: Show the border
+- ShowArtist: true
+  $name: Show the artist
 */
 // ==/WindhawkModSettings==
 
@@ -145,6 +147,7 @@ struct ModSettings {
     int offsetX = 12;
     int offsetY = 0;
     bool showBorder = false;
+    bool showArtist = true;
 } g_Settings;
 
 // --- Global State ---
@@ -192,6 +195,7 @@ void LoadSettings() {
         g_Settings.height = 48;
 
     g_Settings.showBorder = Wh_GetIntSetting(L"ShowBorder");
+    g_Settings.showArtist = Wh_GetIntSetting(L"ShowArtist");
 }
 
 // --- WinRT / GSMTC ---
@@ -604,11 +608,10 @@ void DrawMediaPanel(HDC hdc, int width, int height) {
 
     wstring fullText = state.title;
 
-    if (!state.artist.empty()) {
+    if (!state.artist.empty() && g_Settings.showArtist) {
         wstring cleanArtist = state.artist;
 
-        // Artist is "ARTIST_NAME — ALBUM_NAME" (on apple music for windows at
-        // least).
+        // Artist is "ARTIST_NAME — ALBUM_NAME" (on apple music for windows at least).
         size_t pos = cleanArtist.find_first_of(L"—");
 
         if (pos != wstring::npos) {
