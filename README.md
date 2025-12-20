@@ -2,7 +2,7 @@
 
 Thanks to `Hashah2311` for the original `Taskbar Music Lounge` mod.
 
-A media controller that uses Windows 11 native DWM styling for a seamless look.
+Now playing in taskbar with media controls.
 
 ## ✨ Features
 * **Universal Support:** Works with any media player via GSMTC.
@@ -12,7 +12,6 @@ A media controller that uses Windows 11 native DWM styling for a seamless look.
 
 ## ⚠️ Requirements
 * **Disable Widgets:** Taskbar Settings -> Widgets -> Off.
-* **Windows 11:** Required for rounded corners.
 
 ## Images:
 
