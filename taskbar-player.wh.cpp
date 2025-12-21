@@ -537,7 +537,7 @@ void DrawMediaPanel(HDC hdc, int width, int height) {
     int padding = 0;
 
     // 1. Album Art
-    int artSize = height - padding;
+    int artSize = height - padding - 1;
     int artX = padding;
     int artY = padding + 1;
 
