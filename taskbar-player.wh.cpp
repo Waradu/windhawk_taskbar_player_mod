@@ -32,11 +32,11 @@ Now playing in taskbar with media controls.
 /*
 - PanelWidth: 400
   $name: Panel Width
-- PanelHeight: 46
+- PanelHeight: 34
   $name: Panel Height
 - FontSize: 12
   $name: Font Size
-- OffsetX: 0
+- OffsetX: 6
   $name: X Offset
 - OffsetY: 0
   $name: Y Offset
@@ -534,10 +534,12 @@ void DrawMediaPanel(HDC hdc, int width, int height) {
         state.isPlaying = g_MediaState.isPlaying;
     }
 
+    int padding = 0;
+
     // 1. Album Art
-    int artSize = height - 12;
-    int artX = 6;
-    int artY = 7;
+    int artSize = height - padding;
+    int artX = padding;
+    int artY = padding + 1;
 
     RectF artRect((REAL)artX, (REAL)artY, (REAL)artSize, (REAL)artSize);
 
