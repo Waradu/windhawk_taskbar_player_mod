@@ -57,7 +57,6 @@ Now playing in taskbar with media controls.
 #include <string>
 #include <thread>
 
-
 // WinRT
 #include <winrt/Windows.Foundation.h>
 #include <winrt/Windows.Media.Control.h>
@@ -613,7 +612,8 @@ void DrawMediaPanel(HDC hdc, int width, int height) {
     if (!state.artist.empty() && g_Settings.showArtist) {
         wstring cleanArtist = state.artist;
 
-        // Artist is "ARTIST_NAME — ALBUM_NAME" (on apple music for windows at least).
+        // Artist is "ARTIST_NAME — ALBUM_NAME" (on apple music for windows at
+        // least).
         size_t pos = cleanArtist.find_first_of(L"—");
 
         if (pos != wstring::npos) {
@@ -836,8 +836,8 @@ void MediaThread() {
     if (CreateWindowInBand) {
         g_hMediaWindow = CreateWindowInBand(
             WS_EX_LAYERED | WS_EX_TOOLWINDOW | WS_EX_TOPMOST, wc.lpszClassName,
-            TEXT("TaskbarPlayer"), WS_POPUP | WS_VISIBLE, 0, 0, g_Settings.width,
-            g_Settings.height, NULL, NULL, wc.hInstance, NULL,
+            TEXT("TaskbarPlayer"), WS_POPUP | WS_VISIBLE, 0, 0,
+            g_Settings.width, g_Settings.height, NULL, NULL, wc.hInstance, NULL,
             ZBID_IMMERSIVE_NOTIFICATION);
         if (g_hMediaWindow) {
             Wh_Log(L"Created window in ZBID_IMMERSIVE_NOTIFICATION band");
@@ -849,10 +849,11 @@ void MediaThread() {
         Wh_Log(
             L"CreateWindowInBand failed or unavailable, falling back to "
             L"CreateWindowEx");
-        g_hMediaWindow = CreateWindowEx(
-            WS_EX_LAYERED | WS_EX_TOOLWINDOW | WS_EX_TOPMOST, wc.lpszClassName,
-            TEXT("TaskbarPlayer"), WS_POPUP | WS_VISIBLE, 0, 0, g_Settings.width,
-            g_Settings.height, NULL, NULL, wc.hInstance, NULL);
+        g_hMediaWindow =
+            CreateWindowEx(WS_EX_LAYERED | WS_EX_TOOLWINDOW | WS_EX_TOPMOST,
+                           wc.lpszClassName, TEXT("TaskbarPlayer"),
+                           WS_POPUP | WS_VISIBLE, 0, 0, g_Settings.width,
+                           g_Settings.height, NULL, NULL, wc.hInstance, NULL);
     }
 
     SetLayeredWindowAttributes(g_hMediaWindow, 0, 255, LWA_ALPHA);
